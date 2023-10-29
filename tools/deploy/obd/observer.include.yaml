@@ -18,6 +18,7 @@ config:
   production_mode: false
   cluster_id: 1
   # datafile_disk_percentage: '50'
+  root_password: 123456
   datafile_size: '2G'
   datafile_next: '2G'
   datafile_maxsize: '8G'

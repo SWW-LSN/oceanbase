@@ -334,6 +334,7 @@
 #include "ob_expr_initcap.h"
 #include "ob_expr_temp_table_ssid.h"
 #include "ob_expr_align_date4cmp.h"
+#include "ob_expr_hello.h"
 
 namespace oceanbase
 {
@@ -1037,7 +1038,8 @@ static ObExpr::EvalFunc g_expr_eval_functions[] = {
   ObExprJoinFilter::eval_in_filter,                                   /* 605 */
   ObExprCurrentScn::eval_current_scn,                                 /* 606 */
   ObExprTempTableSSID::calc_temp_table_ssid,                          /* 607 */
-  ObExprAlignDate4Cmp::eval_align_date4cmp,                            /* 608 */
+  ObExprAlignDate4Cmp::eval_align_date4cmp,                           /* 608 */
+  ObExprHello::eval,                                                  /* 609 */
 };
 
 static ObExpr::EvalBatchFunc g_expr_eval_batch_functions[] = {
