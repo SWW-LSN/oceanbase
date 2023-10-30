@@ -1,5 +1,9 @@
 #define USING_LOG_PREFIX SQL_ENG
 #include "sql/engine/expr/ob_expr_hello.h"
+#include "sql/engine/expr/ob_expr_util.h"
+#include "share/object/ob_obj_cast.h"
+#include "objit/common/ob_item_type.h"
+#include "sql/session/ob_sql_session_info.h"
 #include "sql/engine/ob_physical_plan_ctx.h"
 #include "lib/mysqlclient/ob_mysql_result.h"
 #include "lib/mysqlclient/ob_mysql_transaction.h"
@@ -7,6 +11,11 @@
 #include "lib/mysqlclient/ob_mysql_proxy.h"
 #include "lib/oblog/ob_log_module.h"
 #include "sql/engine/ob_exec_context.h"
+#include "sql/engine/expr/ob_expr_operator.h"
+#include "lib/oblog/ob_log.h"
+#include "sql/engine/expr/ob_datum_cast.h"
+#include "sql/engine/expr/ob_expr_lob_utils.h"
+
 
 using namespace oceanbase::common;
 using namespace oceanbase::sql;
@@ -33,7 +42,7 @@ int ObExprHello::eval(const ObExpr& expr, ObEvalCtx &ctx, ObDatum& expr_datum)
 }
 
 ObExprHello::ObExprHello(common::ObIAllocator& alloc)
-    :ObStringExprOperator(alloc, T_FUN_SYS_HELLO, "hello", 0, NOT_VALID_FOR_GENERATED_COL)
+    :ObStringExprOperator(alloc, T_FUN_SYS_HELLO, N_HELLO, 0, NOT_VALID_FOR_GENERATED_COL)
 {
 }
 
